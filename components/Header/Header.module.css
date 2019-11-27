@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #282c34;
+    height: 100px;
+}
+
+.logo {
+    width: 100px;
+}
+
+form input {
+    width: 300px;
+}
+
+form button {
+    margin-left: 10px;
+}
