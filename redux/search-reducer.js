@@ -1,10 +1,12 @@
 const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 
 let initialState = {
-    searchText: ''
+    searchText: '',
+    lang: 'ru',
+    media_type: []
 };
 
-const headerReducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_SEARCH_TEXT:
             return {
@@ -18,4 +20,4 @@ const headerReducer = (state = initialState, action) => {
 
 export const updateSearchText = (searchText) => ({type: UPDATE_SEARCH_TEXT, searchText});
 
-export default headerReducer;
+export default searchReducer;

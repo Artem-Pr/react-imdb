@@ -1,24 +1,22 @@
 import React from 'react';
 import Output from "./Output";
-import {updateSearchText} from "../../redux/header-reducer";
 import {connect} from "react-redux";
 
 
 class OutputContainer extends React.Component {
 
     render() {
+        console.log(this.props.movies);
         return (
-            <Output/>
+            <Output movies={this.props.movies}/>
         );
     }
 }
 
-// let mapStateToProps = (state) => {
-//     return {
-//         searchText: state.outputPage.searchText
-//     }
-// };
+let mapStateToProps = (state) => {
+    return {
+        movies: state.outputPage.movies
+    }
+};
 
-// export default connect(mapStateToProps, {updateSearchText})(OutputContainer);
-export default OutputContainer;
-
+export default connect(mapStateToProps, {})(OutputContainer);

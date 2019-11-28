@@ -6,13 +6,11 @@ function Header(props) {
     return (
         <header className={s.header}>
             <img src={logo} className={s.logo} alt="logo"/>
-            <form id="search-form">
-                <input type="text" className="form-control" id="searchText" name="searchText"
+                <input type="text" className="form-control"
                        value={props.searchText}
                        onChange={(e) => props.onSearchChanged(e)}
                        placeholder="Enter the name..."/>
-                <button type="submit" value="Submit">Search</button>
-            </form>
+                <button onClick={() => props.onSearchClick()}>Search</button>
         </header>
     );
 }
