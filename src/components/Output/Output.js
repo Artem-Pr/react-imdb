@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './Output.module.css';
 
-function Output() {
+let Output = (props) => {
     return (
         <section className={s.Output}>
-            Результаты поиска
+            searching results
         </section>
     );
-}
+};
 
 export default Output;
