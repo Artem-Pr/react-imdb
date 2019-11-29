@@ -7,18 +7,14 @@ const instance = axios.create({
 });
 
 export const moviesAPI = {
-    getMovies(lang, movieName) {
-        return instance.get('/multi', {
+    getMovies(lang, movieName, page) {
+        return instance.get('/movie', {
             params: {
                 api_key: tmdbAPI,
                 language: lang,
-                query: movieName
+                query: movieName,
+                page: page
             }
         })
-            .then(response => {
-                console.log(response);
-                return response.data;
-            })
     }
 };
-// https://api.themoviedb.org/3/search/multi?api_key=619e6b54477dcd363899f6f2d3dc1ed1&language=ru&query=star&page=3
