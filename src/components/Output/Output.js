@@ -3,8 +3,24 @@ import s from './Output.module.css';
 
 let Output = (props) => {
     let pages = [];
-    for (let i = 1; i <= props.totalPages; i++) {
-        pages.push(i);
+    if (props.totalPages < 11) {
+        for (let i = 1; i <= props.totalPages; i++) {
+            pages.push(i);
+        }
+    } else {
+        let i;
+        props.currentPage < 4 ? i = 1 : i = props.currentPage - 2;
+        if (i > 1) pages.push('start');
+        if (props.currentPage + 2 < props.totalPages) {
+            for (i; i <= props.currentPage + 2; i++) {
+                pages.push(i);
+            }
+            pages.push('end');
+        } else {
+            for (i; i <= props.totalPages; i++) {
+                pages.push(i);
+            }
+        }
     }
 
     return (
@@ -14,14 +30,14 @@ let Output = (props) => {
                 : <div>
                     <div>Total count: {props.totalMoviesCount}</div>
                     <div>
-                        {pages.map(p => {
-                            return <span key={p}
-                                className={(props.currentPage === p && s.selectedPage) + ' ' + s.pageNumber}
-                                onClick={() => {
-                                    props.onPageChanged(p)
-                                }}
+                        {pages.map(p =>
+                            <span key={p}
+                                  className={(props.currentPage === p && s.selectedPage) + ' ' + s.pageNumber}
+                                  onClick={() => {
+                                      props.onPageChanged(p)
+                                  }}
                             >{p}</span>
-                        })}
+                        )}
                     </div>
                     <table>
                         <thead>
@@ -35,7 +51,7 @@ let Output = (props) => {
                         <tbody>
                         {props.movies.map((item, i) =>
                             <tr key={item.id}>
-                                <td>{i + 1}</td>
+                                <td>{props.pageSize * (props.currentPage - 1) + i + 1}</td>
                                 <td>{item.media_type}</td>
                                 <td>{item.name || item.title}</td>
                                 <td>{item.release_date || item.first_air_date}</td>

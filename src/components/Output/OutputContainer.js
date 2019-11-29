@@ -16,6 +16,7 @@ class OutputContainer extends React.Component {
                     totalMoviesCount={this.props.totalMoviesCount}
                     totalPages={this.props.totalPages}
                     currentPage={this.props.currentPage}
+                    pageSize={this.props.pageSize}
                     onPageChanged={this.onPageChanged}/>
         );
     }
@@ -24,11 +25,12 @@ class OutputContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         movies: state.outputPage.movies,
-        totalMoviesCount : state.outputPage.totalMoviesCount,
+        totalMoviesCount: state.outputPage.totalMoviesCount,
         totalPages: state.outputPage.totalPages,
         currentPage: state.outputPage.currentPage,
         lang: state.searchHeader.lang,
-        searchText: state.searchHeader.searchText
+        searchText: state.searchHeader.searchText,
+        pageSize: state.outputPage.pageSize
     }
 };
 

@@ -9,7 +9,8 @@ let initialState = {
     movies: null,
     totalMoviesCount: null,
     totalPages: null,
-    currentPage: 1
+    currentPage: 1,
+    pageSize: 20
 };
 
 const outputReducer = (state = initialState, action) => {
