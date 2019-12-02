@@ -17,6 +17,8 @@ class OutputContainer extends React.Component {
                     totalPages={this.props.totalPages}
                     currentPage={this.props.currentPage}
                     pageSize={this.props.pageSize}
+                    firstPageName={this.props.firstPageName}
+                    lastPageName={this.props.lastPageName}
                     onPageChanged={this.onPageChanged}/>
         );
     }
@@ -30,7 +32,9 @@ let mapStateToProps = (state) => {
         currentPage: state.outputPage.currentPage,
         lang: state.searchHeader.lang,
         searchText: state.searchHeader.searchText,
-        pageSize: state.outputPage.pageSize
+        pageSize: state.outputPage.pageSize,
+        firstPageName: state.outputPage.firstPageName,
+        lastPageName: state.outputPage.lastPageName
     }
 };
 

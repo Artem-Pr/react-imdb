@@ -2,7 +2,7 @@ const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 
 let initialState = {
     searchText: 'batman',
-    lang: 'ru',
+    lang: 'en-US',
     media_type: []
 };
 
