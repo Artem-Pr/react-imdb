@@ -1,11 +1,13 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import searchReducer from "./search-reducer";
 import outputReducer from "./output-reducer";
+import detailsReducer from "./details-reducer";
 import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers({
     searchHeader: searchReducer,
-    outputPage: outputReducer
+    outputPage: outputReducer,
+    detailsPage: detailsReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

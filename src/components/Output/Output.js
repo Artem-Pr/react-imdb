@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Output.module.css';
+import {NavLink} from "react-router-dom";
 
 let Output = (props) => {
     let pages = [];
@@ -10,12 +11,12 @@ let Output = (props) => {
     } else {
         let i;
         props.currentPage < 4 ? i = 1 : i = props.currentPage - 2;
-        if (i > 1) pages.push('start');
+        if (i > 1) pages.push(props.firstPageName);
         if (props.currentPage + 2 < props.totalPages) {
             for (i; i <= props.currentPage + 2; i++) {
                 pages.push(i);
             }
-            pages.push('end');
+            pages.push(props.lastPageName);
         } else {
             for (i; i <= props.totalPages; i++) {
                 pages.push(i);
@@ -34,6 +35,8 @@ let Output = (props) => {
                             <span key={p}
                                   className={(props.currentPage === p && s.selectedPage) + ' ' + s.pageNumber}
                                   onClick={() => {
+                                      if (p === props.firstPageName) p = 1;
+                                      if (p === props.lastPageName) p = props.totalPages;
                                       props.onPageChanged(p)
                                   }}
                             >{p}</span>
@@ -43,7 +46,7 @@ let Output = (props) => {
                         <thead>
                         <tr>
                             <th>Number</th>
-                            <th>Media Type</th>
+                            {/*<th>Media Type</th>*/}
                             <th>Name</th>
                             <th>Release</th>
                         </tr>
@@ -52,8 +55,12 @@ let Output = (props) => {
                         {props.movies.map((item, i) =>
                             <tr key={item.id}>
                                 <td>{props.pageSize * (props.currentPage - 1) + i + 1}</td>
-                                <td>{item.media_type}</td>
-                                <td>{item.name || item.title}</td>
+                                {/*<td>{item.media_type}</td>*/}
+                                <td>
+                                    <NavLink to={`/details/${item.id}`}>
+                                        {item.name || item.title}
+                                    </NavLink>
+                                </td>
                                 <td>{item.release_date || item.first_air_date}</td>
                             </tr>
                         )}
