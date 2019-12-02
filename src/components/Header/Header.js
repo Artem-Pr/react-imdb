@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import s from './Header.module.css'
+import {NavLink} from "react-router-dom";
 
 function Header(props) {
     return (
@@ -10,7 +11,9 @@ function Header(props) {
                        value={props.searchText}
                        onChange={(e) => props.onSearchChanged(e)}
                        placeholder="Enter the name..."/>
-                <button onClick={() => props.onSearchClick()}>Search</button>
+                <NavLink to={'/'}>
+                    <button onClick={() => props.onSearchClick()}>Search</button>
+                </NavLink>
         </header>
     );
 }

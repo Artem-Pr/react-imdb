@@ -12,7 +12,7 @@ class HeaderContainer extends React.Component {
     };
 
     onSearchClick = () => {
-        this.props.getMovies(this.props.lang, this.props.searchText, this.props.currentPage);
+        this.props.getMovies(this.props.lang, this.props.searchText, 1);
     };
 
     render() {
@@ -27,8 +27,7 @@ class HeaderContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         searchText: state.searchHeader.searchText,
-        lang: state.searchHeader.lang,
-        currentPage: state.outputPage.currentPage
+        lang: state.searchHeader.lang
     }
 };
 

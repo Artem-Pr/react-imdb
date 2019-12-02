@@ -14,7 +14,7 @@ export const moviesAPI = {
                 language: lang,
                 query: movieName,
                 page: page,
-                include_adult: true
+                include_adult: false
             }
         })
     },
