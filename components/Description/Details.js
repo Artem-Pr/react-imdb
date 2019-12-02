@@ -1,9 +1,13 @@
 import React from 'react';
 import s from './Details.module.css';
+import {NavLink} from "react-router-dom";
 
 let Details = (props) => {
     return (
         <section>
+            <NavLink to={'/'}>
+                <div>Go back</div>
+            </NavLink>
             <h1 className={s.Details}>{props.title}</h1>
             <div>Genres: {
                 props.genres ? props.genres.map((item, i) => <span key={i}>{item.name} </span>) : ""
