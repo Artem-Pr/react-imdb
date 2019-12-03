@@ -4,6 +4,7 @@ const SET_MOVIES = 'SET_MOVIES';
 const SET_TOTAL_MOVIES_COUNT = 'SET_TOTAL_MOVIES_COUNT';
 const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_POSTERS_URL = 'SET_POSTERS_URL';
 
 let initialState = {
     movies: null,
@@ -11,8 +12,8 @@ let initialState = {
     totalPages: null,
     currentPage: 1,
     pageSize: 20,
-    firstPageName: 'First page',
-    lastPageName: 'Last page'
+    smallPosterBaseUrl: 'https://image.tmdb.org/t/p/w92',
+    postersUrl: []
 };
 
 const outputReducer = (state = initialState, action) => {
@@ -37,6 +38,11 @@ const outputReducer = (state = initialState, action) => {
                 ...state,
                 currentPage: action.currentPage
             };
+        case SET_POSTERS_URL:
+            return {
+                ...state,
+                postersUrl: action.urlsArray
+            };
         default:
             return state;
     }
@@ -45,7 +51,8 @@ const outputReducer = (state = initialState, action) => {
 export const setMovies = (movies) => ({type: SET_MOVIES, movies});
 export const setTotalMoviesCount = (totalMoviesCount) => ({type: SET_TOTAL_MOVIES_COUNT, totalMoviesCount});
 export const setTotalPages = (totalPages) => ({type: SET_TOTAL_PAGES, totalPages});
-export const setCurrent_Page = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setPostersUrl = (urlsArray) => ({type: SET_POSTERS_URL, urlsArray});
 
 export const getMovies = (lang, searchText, page) => {
     return (dispatch) => {
@@ -55,9 +62,19 @@ export const getMovies = (lang, searchText, page) => {
                 dispatch(setMovies(response.data.results));
                 dispatch(setTotalMoviesCount(response.data.total_results));
                 dispatch(setTotalPages(response.data.total_pages));
-                dispatch(setCurrent_Page(response.data.page))
+                dispatch(setCurrentPage(response.data.page));
             });
     }
+};
+
+export const getPostersUrl = (moviesArray, smallPosterBaseUrl) => {
+    let postersUrlArray = moviesArray.map(item => {
+        if (item.poster_path) return smallPosterBaseUrl + item.poster_path;
+        return null;
+    });
+    return (dispatch) => {
+        dispatch(setPostersUrl(postersUrlArray));
+    };
 };
 
 export default outputReducer;

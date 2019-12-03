@@ -1,10 +1,16 @@
 import React from 'react';
 import Output from "./Output";
 import {connect} from "react-redux";
-import {getMovies} from "../../redux/output-reducer";
+import {getMovies, getPostersUrl} from "../../redux/output-reducer";
 
 
 class OutputContainer extends React.Component {
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.movies !== prevProps.movies) {
+            this.props.getPostersUrl(this.props.movies, this.props.smallPosterBaseUrl);
+        }
+    };
 
     onPageChanged = (pageNumber) => {
         this.props.getMovies(this.props.lang, this.props.searchText, pageNumber);
@@ -17,8 +23,7 @@ class OutputContainer extends React.Component {
                     totalPages={this.props.totalPages}
                     currentPage={this.props.currentPage}
                     pageSize={this.props.pageSize}
-                    firstPageName={this.props.firstPageName}
-                    lastPageName={this.props.lastPageName}
+                    postersUrl={this.props.postersUrl}
                     onPageChanged={this.onPageChanged}/>
         );
     }
@@ -33,9 +38,9 @@ let mapStateToProps = (state) => {
         lang: state.searchHeader.lang,
         searchText: state.searchHeader.searchText,
         pageSize: state.outputPage.pageSize,
-        firstPageName: state.outputPage.firstPageName,
-        lastPageName: state.outputPage.lastPageName
+        postersUrl: state.outputPage.postersUrl,
+        smallPosterBaseUrl: state.outputPage.smallPosterBaseUrl
     }
 };
 
-export default connect(mapStateToProps, {getMovies})(OutputContainer);
+export default connect(mapStateToProps, {getMovies, getPostersUrl})(OutputContainer);

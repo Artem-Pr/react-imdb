@@ -1,13 +1,36 @@
-.Output {
+.output {
     padding: 30px;
 }
-
-.pageNumber {
-    padding-right: 5px;
-    cursor: pointer;
+.number {
+    font-size: 14px;
+    min-width: 10px;
 }
-
-.selectedPage {
-    font-weight: 700;
-    font-size: 20px;
+.posterImg {
+    height: 70px;
+}
+.moviesItem {
+    color: #495057;
+    min-height: 90px;
+    text-decoration: none !important;
+    transition: all 0.2s;
+}
+.moviesItem:hover {
+    background-color: #c6d9ff;
+}
+.moviesItemTitle {
+    max-width: 350px;
+}
+.voteAverageGreen {
+    color: forestgreen;
+}
+.voteAverageGrey {
+    color: darkgray;
+}
+.voteAverageRed {
+    color: crimson;
+}
+.voteAverageGreen,
+.voteAverageGrey,
+.voteAverageGrey {
+    min-width: 20px;
 }

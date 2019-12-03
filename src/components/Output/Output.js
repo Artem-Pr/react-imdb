@@ -1,7 +1,9 @@
 import React from 'react';
-import s from './Output.module.css';
-import {NavLink} from "react-router-dom";
-import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
+import style from './Output.module.css';
+import {NavLink} from 'react-router-dom';
+import {Col, Container, Pagination, PaginationItem, PaginationLink, Row} from 'reactstrap';
+import cx from "classnames";
+import placeHolder from './../../img/Placeholder(92x138).png';
 
 let Output = (props) => {
     let getPagesArray = (curPage, lastPage) => {
@@ -30,12 +32,18 @@ let Output = (props) => {
         }
     };
 
+    let getVoteAverageColor = (voteAverage) => {
+      if (voteAverage > 7) return style.voteAverageGreen;
+      if (voteAverage > 5) return style.voteAverageGrey;
+      return style.voteAverageRed;
+    };
+
     return (
-        <section className={s.Output}>
+        <section className={style.output}>
             {props.movies === null
                 ? <div>searching results</div>
                 : <div>
-                    <Pagination className="d-flex justify-content-center" aria-label="Page navigation example">
+                    <Pagination className="d-flex justify-content-center">
                         {getFirstPageArrow(1)}
                         {pages.map(p => <PaginationItem key={p} active={p === props.currentPage}>
                             <PaginationLink onClick={() => props.onPageChanged(p)}>
@@ -45,32 +53,30 @@ let Output = (props) => {
                         {getLastPageArrow(props.totalPages)}
                     </Pagination>
 
-
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Number</th>
-                            {/*<th>Media Type</th>*/}
-                            <th>Name</th>
-                            <th>Release</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <Container>
                         {props.movies.map((item, i) =>
-                            <tr key={item.id}>
-                                <td>{props.pageSize * (props.currentPage - 1) + i + 1}</td>
-                                {/*<td>{item.media_type}</td>*/}
-                                <td>
-                                    <NavLink to={`/details/${item.id}`}>
-                                        {item.name || item.title}
+                            <Row key={item.id} className="justify-content-center">
+                                <Col md="10">
+                                    <NavLink className={cx(style.moviesItem, "d-flex mb-2 align-items-center border border-primary rounded")}
+                                        to={`/details/${item.id}`}>
+                                        <span className={cx(style.number, "ml-3 mb-0")}>{props.pageSize * (props.currentPage - 1) + i + 1}</span>
+                                        <img className={cx(style.posterImg, "ml-3")} src={props.postersUrl[i] || placeHolder}
+                                             alt={item.title + '_img'}/>
+                                        <div className={cx(style.moviesItemTitle, "d-flex flex-column ml-3 mr-auto")}>
+                                            <h4 className="mb-0">{item.name || item.title}</h4>
+                                            <span>{item.release_date || item.first_air_date}</span>
+                                        </div>
+                                        <span className={cx(getVoteAverageColor(item.vote_average), "ml-3 mr-3 text-center font-weight-bold")}>{item.vote_average}</span>
                                     </NavLink>
-                                </td>
-                                <td>{item.release_date || item.first_air_date}</td>
-                            </tr>
+                                </Col>
+                            </Row>
                         )}
-                        </tbody>
-                    </table>
-                    <div>Total count: {props.totalMoviesCount}</div>
+                        <Row className="justify-content-center">
+                            <Col md="10">
+                                <div>Total count: {props.totalMoviesCount}</div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             }
         </section>
