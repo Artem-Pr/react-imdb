@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-imdb/static/css/main.91c61c5c.chunk.css",
-    "main.js": "/react-imdb/static/js/main.fc8eda90.chunk.js",
-    "main.js.map": "/react-imdb/static/js/main.fc8eda90.chunk.js.map",
-    "runtime-main.js": "/react-imdb/static/js/runtime-main.c80f16a4.js",
-    "runtime-main.js.map": "/react-imdb/static/js/runtime-main.c80f16a4.js.map",
-    "static/css/2.17e5ed98.chunk.css": "/react-imdb/static/css/2.17e5ed98.chunk.css",
-    "static/js/2.ce2dc795.chunk.js": "/react-imdb/static/js/2.ce2dc795.chunk.js",
-    "static/js/2.ce2dc795.chunk.js.map": "/react-imdb/static/js/2.ce2dc795.chunk.js.map",
+    "main.css": "/react-imdb/static/css/main.7db1e3b4.chunk.css",
+    "main.js": "/react-imdb/static/js/main.b814a17b.chunk.js",
+    "main.js.map": "/react-imdb/static/js/main.b814a17b.chunk.js.map",
+    "runtime-main.js": "/react-imdb/static/js/runtime-main.105d6a97.js",
+    "runtime-main.js.map": "/react-imdb/static/js/runtime-main.105d6a97.js.map",
+    "static/css/2.83ace7dd.chunk.css": "/react-imdb/static/css/2.83ace7dd.chunk.css",
+    "static/js/2.05593625.chunk.js": "/react-imdb/static/js/2.05593625.chunk.js",
+    "static/js/2.05593625.chunk.js.map": "/react-imdb/static/js/2.05593625.chunk.js.map",
     "index.html": "/react-imdb/index.html",
-    "precache-manifest.70ecae3f0af8478c02b3394ef1401a2d.js": "/react-imdb/precache-manifest.70ecae3f0af8478c02b3394ef1401a2d.js",
+    "precache-manifest.2b3549a6bb3e9f1f6da760720123ab61.js": "/react-imdb/precache-manifest.2b3549a6bb3e9f1f6da760720123ab61.js",
     "service-worker.js": "/react-imdb/service-worker.js",
-    "static/css/2.17e5ed98.chunk.css.map": "/react-imdb/static/css/2.17e5ed98.chunk.css.map",
-    "static/css/main.91c61c5c.chunk.css.map": "/react-imdb/static/css/main.91c61c5c.chunk.css.map",
+    "static/css/2.83ace7dd.chunk.css.map": "/react-imdb/static/css/2.83ace7dd.chunk.css.map",
+    "static/css/main.7db1e3b4.chunk.css.map": "/react-imdb/static/css/main.7db1e3b4.chunk.css.map",
     "static/media/logo.svg": "/react-imdb/static/media/logo.25bf045c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c80f16a4.js",
-    "static/css/2.17e5ed98.chunk.css",
-    "static/js/2.ce2dc795.chunk.js",
-    "static/css/main.91c61c5c.chunk.css",
-    "static/js/main.fc8eda90.chunk.js"
+    "static/js/runtime-main.105d6a97.js",
+    "static/css/2.83ace7dd.chunk.css",
+    "static/js/2.05593625.chunk.js",
+    "static/css/main.7db1e3b4.chunk.css",
+    "static/js/main.b814a17b.chunk.js"
   ]
 }
