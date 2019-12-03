@@ -1,47 +1,51 @@
 import React from 'react';
 import s from './Output.module.css';
 import {NavLink} from "react-router-dom";
+import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
 
 let Output = (props) => {
-    let pages = [];
-    if (props.totalPages < 11) {
-        for (let i = 1; i <= props.totalPages; i++) {
-            pages.push(i);
+    let getPagesArray = (curPage, lastPage) => {
+        let pagesArray = [];
+        if (curPage > 2 && curPage === lastPage) pagesArray.push(curPage - 2);
+        if (curPage > 1) pagesArray.push(curPage - 1);
+        pagesArray.push(curPage);
+        if (curPage < lastPage) pagesArray.push(curPage + 1);
+        if (lastPage > 2 && curPage === 1) pagesArray.push(curPage + 2);
+        return pagesArray;
+    };
+    let pages = getPagesArray(props.currentPage, props.totalPages);
+
+    let getFirstPageArrow = (page) => {
+        if (props.currentPage > 1) {
+            return <PaginationItem>
+                <PaginationLink first onClick={() => props.onPageChanged(1)}/>
+            </PaginationItem>
         }
-    } else {
-        let i;
-        props.currentPage < 4 ? i = 1 : i = props.currentPage - 2;
-        if (i > 1) pages.push(props.firstPageName);
-        if (props.currentPage + 2 < props.totalPages) {
-            for (i; i <= props.currentPage + 2; i++) {
-                pages.push(i);
-            }
-            pages.push(props.lastPageName);
-        } else {
-            for (i; i <= props.totalPages; i++) {
-                pages.push(i);
-            }
+    };
+    let getLastPageArrow = (page) => {
+        if (props.currentPage + 1 < props.totalPages) {
+            return <PaginationItem>
+                <PaginationLink last onClick={() => props.onPageChanged(props.totalPages)}/>
+            </PaginationItem>
         }
-    }
+    };
 
     return (
         <section className={s.Output}>
             {props.movies === null
                 ? <div>searching results</div>
                 : <div>
-                    <div>Total count: {props.totalMoviesCount}</div>
-                    <div>
-                        {pages.map(p =>
-                            <span key={p}
-                                  className={(props.currentPage === p && s.selectedPage) + ' ' + s.pageNumber}
-                                  onClick={() => {
-                                      if (p === props.firstPageName) p = 1;
-                                      if (p === props.lastPageName) p = props.totalPages;
-                                      props.onPageChanged(p)
-                                  }}
-                            >{p}</span>
-                        )}
-                    </div>
+                    <Pagination className="d-flex justify-content-center" aria-label="Page navigation example">
+                        {getFirstPageArrow(1)}
+                        {pages.map(p => <PaginationItem key={p} active={p === props.currentPage}>
+                            <PaginationLink onClick={() => props.onPageChanged(p)}>
+                                {p}
+                            </PaginationLink>
+                        </PaginationItem>)}
+                        {getLastPageArrow(props.totalPages)}
+                    </Pagination>
+
+
                     <table>
                         <thead>
                         <tr>
@@ -66,6 +70,7 @@ let Output = (props) => {
                         )}
                         </tbody>
                     </table>
+                    <div>Total count: {props.totalMoviesCount}</div>
                 </div>
             }
         </section>

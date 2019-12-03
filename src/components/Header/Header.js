@@ -19,8 +19,8 @@ function Header(props) {
                                placeholder="Enter the name..."/>
                     </Col>
                     <Col xs="2" className="d-flex align-items-center">
-                        <NavLink to={'/'}>
-                            <Button color='primary' onClick={() => props.onSearchClick()}>Search</Button>
+                        <NavLink className="w-100" to={'/'}>
+                            <Button className="w-100" color="primary" onClick={() => props.onSearchClick()}>Search</Button>
                         </NavLink>
                     </Col>
                 </Row>
