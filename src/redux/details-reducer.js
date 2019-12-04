@@ -19,7 +19,7 @@ const detailsReducer = (state = initialState, action) => {
         case SET_POSTER_URL:
             return {
                 ...state,
-                posterUrl: state.posterBaseUrl + action.posterUrl
+                posterUrl: action.posterUrl
             };
         default:
             return state;
@@ -34,9 +34,15 @@ export const getDetails = (lang, movieId) => {
         moviesAPI.getDetails(lang, movieId)
             .then(response => {
                 dispatch(setMovieDetails(response.data));
-                dispatch(setPosterUrl(response.data.poster_path));
                 console.log(response.data);
             });
+    }
+};
+
+export const getPosterUrl = (shortPosterUrl, posterBaseUrl) => {
+    return (dispatch) => {
+        if (shortPosterUrl) dispatch(setPosterUrl(posterBaseUrl + shortPosterUrl))
+        else dispatch(setPosterUrl(''));
     }
 };
 

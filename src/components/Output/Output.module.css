@@ -1,6 +1,11 @@
 .output {
     padding: 30px;
 }
+.totalMoviesCount {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .number {
     font-size: 14px;
     min-width: 10px;
@@ -20,17 +25,6 @@
 .moviesItemTitle {
     max-width: 350px;
 }
-.voteAverageGreen {
-    color: forestgreen;
-}
-.voteAverageGrey {
-    color: darkgray;
-}
-.voteAverageRed {
-    color: crimson;
-}
-.voteAverageGreen,
-.voteAverageGrey,
-.voteAverageGrey {
+.voteAverage {
     min-width: 20px;
 }

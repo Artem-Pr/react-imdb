@@ -14,6 +14,7 @@ class OutputContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.getMovies(this.props.lang, this.props.searchText, pageNumber);
+        window.scrollTo({top: 0});
     };
 
     render() {

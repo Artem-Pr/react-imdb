@@ -12,6 +12,7 @@ class HeaderContainer extends React.Component {
     };
 
     onSearchClick = () => {
+        if (this.props.searchText === "") return;
         this.props.getMovies(this.props.lang, this.props.searchText, 1);
     };
 

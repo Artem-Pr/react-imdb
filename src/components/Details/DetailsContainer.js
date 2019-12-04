@@ -1,15 +1,21 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Details from "./Details";
-import {getDetails} from "../../redux/details-reducer";
+import {getDetails, getPosterUrl, setMovieDetails} from "../../redux/details-reducer";
 import {withRouter} from "react-router-dom";
-
 
 class DetailsContainer extends React.Component {
 
     componentDidMount() {
+        this.props.setMovieDetails({poster_path: ""});
         this.props.getDetails(this.props.lang, this.props.match.params.movieId);
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.movieDetails !== prevProps.movieDetails) {
+            this.props.getPosterUrl(this.props.movieDetails.poster_path, this.props.posterBaseUrl);
+        }
+    };
 
     render() {
         return (
@@ -23,10 +29,11 @@ let mapStateToProps = (state) => {
     return {
         movieDetails: state.detailsPage.movieDetails,
         posterUrl: state.detailsPage.posterUrl,
+        posterBaseUrl: state.detailsPage.posterBaseUrl,
         lang: state.searchHeader.lang,
     }
 };
 
 let WithUrlDateDetailsContainer = withRouter(DetailsContainer);
 
-export default connect(mapStateToProps, {getDetails})(WithUrlDateDetailsContainer);
+export default connect(mapStateToProps, {getDetails, setMovieDetails, getPosterUrl})(WithUrlDateDetailsContainer);

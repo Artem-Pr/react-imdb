@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import OutputContainer from "./components/Output/OutputContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import DetailsContainer from "./components/Description/DetailsContainer";
+import DetailsContainer from "./components/Details/DetailsContainer";
 import {Route} from "react-router-dom";
 
 function App() {
