@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d164e1dc01516013d5a0b14d9a533554",
+    "revision": "93f22b599c7525748dec66154602fad5",
     "url": "/react-imdb/index.html"
   },
   {
-    "revision": "6b1e79b97078867803ba",
+    "revision": "16c40b665b33bb6ebaf2",
     "url": "/react-imdb/static/css/2.83ace7dd.chunk.css"
   },
   {
-    "revision": "251be9c4ee3d76420e75",
-    "url": "/react-imdb/static/css/main.f9b9cf1f.chunk.css"
+    "revision": "b6aeef883d63152a5137",
+    "url": "/react-imdb/static/css/main.5cfffed4.chunk.css"
   },
   {
-    "revision": "6b1e79b97078867803ba",
-    "url": "/react-imdb/static/js/2.8dd67e08.chunk.js"
+    "revision": "16c40b665b33bb6ebaf2",
+    "url": "/react-imdb/static/js/2.13a1b8d4.chunk.js"
   },
   {
-    "revision": "251be9c4ee3d76420e75",
-    "url": "/react-imdb/static/js/main.718075b0.chunk.js"
+    "revision": "b6aeef883d63152a5137",
+    "url": "/react-imdb/static/js/main.91989049.chunk.js"
   },
   {
     "revision": "36abaa5691226530f464",
