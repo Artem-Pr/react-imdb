@@ -34,7 +34,6 @@ export const getDetails = (lang, movieId) => {
         moviesAPI.getDetails(lang, movieId)
             .then(response => {
                 dispatch(setMovieDetails(response.data));
-                console.log(response.data);
             });
     }
 };

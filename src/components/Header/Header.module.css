@@ -1,6 +1,4 @@
 .header {
-    display: flex;
-    align-items: center;
     background-color: #282c34;
     height: 100px;
 }
@@ -8,12 +6,4 @@
 .logo {
     width: 100%;
     max-width: 100px;
-}
-
-input {
-    width: 300px;
-}
-
-button {
-    margin-left: 10px;
 }

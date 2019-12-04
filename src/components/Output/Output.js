@@ -8,13 +8,6 @@ import OutputNav from "./OutputNav";
 import VoteAverage from "../Common/VoteAverage/VoteAverage";
 
 let Output = (props) => {
-
-    let getVoteAverageColor = (voteAverage) => {
-        if (voteAverage > 7) return style.voteAverageGreen;
-        if (voteAverage > 5) return style.voteAverageGrey;
-        return style.voteAverageRed;
-    };
-
     return (
         <section className={style.output}>
             {props.movies === null

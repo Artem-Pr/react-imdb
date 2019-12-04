@@ -58,7 +58,6 @@ export const getMovies = (lang, searchText, page) => {
     return (dispatch) => {
         moviesAPI.getMovies(lang, searchText, page)
             .then(response => {
-                console.log(response);
                 dispatch(setMovies(response.data.results));
                 dispatch(setTotalMoviesCount(response.data.total_results));
                 dispatch(setTotalPages(response.data.total_pages));

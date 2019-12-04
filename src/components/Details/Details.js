@@ -1,8 +1,6 @@
 import React from 'react';
-import style from './Details.module.css';
 import {NavLink} from "react-router-dom";
 import {Button, Col, Container, Row} from "reactstrap";
-import cx from "classnames";
 import placeHolder from "../../img/Placeholder(300x450).png";
 import VoteAverage from "../Common/VoteAverage/VoteAverage";
 
@@ -63,7 +61,7 @@ let Details = (props) => {
                         <p>{props.overview}</p>
                         <div>
                             <span className="mr-2">Homepage:</span>
-                            <a href={props.homepage || false}>{props.homepage || "-"}</a>
+                            <a href={props.homepage || undefined}>{props.homepage || "-"}</a>
                         </div>
                     </Col>
                 </Row>

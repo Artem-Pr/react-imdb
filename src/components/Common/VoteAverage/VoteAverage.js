@@ -5,7 +5,6 @@ import cx from "classnames";
 let VoteAverage = (props) => {
 
     let getVoteAverageColor = (voteAverage) => {
-        console.log(style.voteAverageGreen);
         if (voteAverage > 7) return style.voteAverageGreen;
         if (voteAverage > 5) return style.voteAverageGrey;
         return style.voteAverageRed;
