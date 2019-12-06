@@ -54,7 +54,7 @@ export const setTotalPages = (totalPages) => ({type: SET_TOTAL_PAGES, totalPages
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setPostersUrl = (urlsArray) => ({type: SET_POSTERS_URL, urlsArray});
 
-export const getMovies = (lang, searchText, page) => {
+export const getMovieList = (lang, searchText, page) => {
     return (dispatch) => {
         moviesAPI.getMovies(lang, searchText, page)
             .then(response => {

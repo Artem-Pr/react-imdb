@@ -18,6 +18,7 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
+                                         movieName={props.movieName}
                                          onPageChanged={props.onPageChanged}/>
                             : ""}
                         {props.movies.length
@@ -49,6 +50,7 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
+                                         movieName={props.movieName}
                                          onPageChanged={props.onPageChanged}/>
                             : ""}
                     </Container>

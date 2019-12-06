@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Details from "./Details";
-import {getDetails, getPosterUrl, setMovieDetails} from "../../redux/details-reducer";
+import {getMovieDetails, getPosterUrl, setMovieDetails} from "../../redux/details-reducer";
 import {withRouter} from "react-router-dom";
 
 class DetailsContainer extends React.Component {
 
     componentDidMount() {
         this.props.setMovieDetails({poster_path: ""});
-        this.props.getDetails(this.props.lang, this.props.match.params.movieId);
+        this.props.getMovieDetails(this.props.lang, this.props.match.params.movieId);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -34,6 +34,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-let WithUrlDateDetailsContainer = withRouter(DetailsContainer);
+let WithUrlDetailsContainer = withRouter(DetailsContainer);
 
-export default connect(mapStateToProps, {getDetails, setMovieDetails, getPosterUrl})(WithUrlDateDetailsContainer);
+export default connect(mapStateToProps, {getMovieDetails, setMovieDetails, getPosterUrl})(WithUrlDetailsContainer);

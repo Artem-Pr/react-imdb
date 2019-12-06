@@ -4,7 +4,7 @@ const SET_MOVIE_DETAILS = 'SET_MOVIE_DETAILS';
 const SET_POSTER_URL = 'SET_POSTER_URL';
 
 let initialState = {
-    movieDetails: null,
+    movieDetails: {poster_path: ""},
     posterBaseUrl: 'https://image.tmdb.org/t/p/w300',
     posterUrl: ''
 };
@@ -29,7 +29,7 @@ const detailsReducer = (state = initialState, action) => {
 export const setMovieDetails = (movieDetails) => ({type: SET_MOVIE_DETAILS, movieDetails});
 export const setPosterUrl = (posterUrl) => ({type: SET_POSTER_URL, posterUrl});
 
-export const getDetails = (lang, movieId) => {
+export const getMovieDetails = (lang, movieId) => {
     return (dispatch) => {
         moviesAPI.getDetails(lang, movieId)
             .then(response => {

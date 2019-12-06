@@ -16,14 +16,14 @@ let PaginationBlock = (props) => {
     let getFirstPageArrow = (currentPage) => {
         if (currentPage > 1) {
             return <PaginationItem>
-                <PaginationLink first onClick={() => props.onPageChanged(1)}/>
+                <PaginationLink first onClick={(e) => props.onPageChanged(e, 1)}/>
             </PaginationItem>
         }
     };
     let getLastPageArrow = (currentPage, lastPage) => {
         if (currentPage + 1 < lastPage) {
             return <PaginationItem>
-                <PaginationLink last onClick={() => props.onPageChanged(lastPage)}/>
+                <PaginationLink last onClick={(e) => props.onPageChanged(e, lastPage)}/>
             </PaginationItem>
         }
     };
@@ -32,7 +32,7 @@ let PaginationBlock = (props) => {
         {getFirstPageArrow(props.currentPage)}
         {getPagesArray(props.currentPage, props.totalPages)
             .map(p => <PaginationItem key={p} active={p === props.currentPage}>
-            <PaginationLink onClick={() => props.onPageChanged(p)}>
+            <PaginationLink onClick={(e) => props.onPageChanged(e, p)}>
                 {p}
             </PaginationLink>
         </PaginationItem>)}

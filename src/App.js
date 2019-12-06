@@ -12,8 +12,10 @@ function App() {
             <div>
                 <Route exact path="/"
                        render={() => <OutputContainer/>}/>
-                <Route path="/details/:movieId?"
+                <Route path="/details/:movieId"
                        render={() => <DetailsContainer/>}/>
+                <Route path="/find/:name/:page"
+                       render={() => <OutputContainer/>}/>
             </div>
         </div>
     );

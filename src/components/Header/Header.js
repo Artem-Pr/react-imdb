@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import s from './Header.module.css'
-import {NavLink} from 'react-router-dom';
 import {Button, Col, Container, Row} from 'reactstrap';
 
 function Header(props) {
@@ -19,9 +18,7 @@ function Header(props) {
                                placeholder="Enter movie name..."/>
                     </Col>
                     <Col xs="3" md="2" className="d-flex align-items-center">
-                        <NavLink className="w-100" to={'/'}>
-                            <Button className="w-100" color="primary" onClick={() => props.onSearchClick()}>Search</Button>
-                        </NavLink>
+                        <Button className="w-100" color="primary" onClick={() => props.onSearchClick()}>Search</Button>
                     </Col>
                 </Row>
             </Container>

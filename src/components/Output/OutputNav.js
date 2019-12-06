@@ -14,7 +14,8 @@ let OutputNav = (props) => {
                 </div>
                 <PaginationBlock currentPage={props.currentPage}
                                  totalPages={props.totalPages}
-                                 onPageChanged={props.onPageChanged}/>
+                                 onPageChanged={props.onPageChanged}
+                                 movieName={props.movieName}/>
             </Col>
         </Row>
     );

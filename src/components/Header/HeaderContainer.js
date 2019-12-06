@@ -2,7 +2,7 @@ import React from 'react';
 import {updateSearchText} from "../../redux/search-reducer";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {getMovies, setMovies} from "../../redux/output-reducer";
+import {getMovieList, setMovies} from "../../redux/output-reducer";
 
 
 class HeaderContainer extends React.Component {
@@ -13,6 +13,7 @@ class HeaderContainer extends React.Component {
 
     onSearchClick = () => {
         if (this.props.searchText === "") return;
+        window.history.replaceState({}, '', `/find/${this.props.searchText}/${1}`);
         this.props.getMovies(this.props.lang, this.props.searchText, 1);
     };
 
@@ -32,5 +33,5 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {updateSearchText, setMovies, getMovies})(HeaderContainer);
+export default connect(mapStateToProps, {updateSearchText, setMovies, getMovies: getMovieList})(HeaderContainer);
 
