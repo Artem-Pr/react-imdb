@@ -3,7 +3,8 @@ const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 let initialState = {
     searchText: 'batman',
     lang: 'en-US',
-    media_type: []
+    media_type: [],
+    baseUrl: '/react-imdb/'
 };
 
 const searchReducer = (state = initialState, action) => {

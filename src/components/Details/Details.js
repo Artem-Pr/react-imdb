@@ -17,7 +17,7 @@ let Details = (props) => {
             <Container className="mt-4">
                 <Row>
                     <Col xs="5" md="3">
-                        <Link className="mb-4 btn btn-outline-primary" to={`/find/${props.searchText}/${props.currentPage}`}>
+                        <Link className="mb-4 btn btn-outline-primary" to={`${props.baseUrl}find/${props.searchText}/${props.currentPage}`}>
                             Go back
                         </Link>
                         <img className="w-100"

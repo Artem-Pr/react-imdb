@@ -18,6 +18,7 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
+                                         baseUrl={props.baseUrl}
                                          movieName={props.movieName}/>
                             : ""}
                         {props.movies.length
@@ -26,7 +27,7 @@ let Output = (props) => {
                                     <Col md="10">
                                         <Link
                                             className={cx(style.moviesItem, "d-flex mb-2 align-items-center border border-primary rounded")}
-                                            to={`/details/${item.id}`}>
+                                            to={`${props.baseUrl}details/${item.id}`}>
                                         <span
                                             className={cx(style.number, "ml-3 mb-0")}>{props.pageSize * (props.currentPage - 1) + i + 1}</span>
                                             <img className={cx(style.posterImg, "ml-3")}
@@ -49,6 +50,7 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
+                                         baseUrl={props.baseUrl}
                                          movieName={props.movieName}/>
                             : ""}
                     </Container>

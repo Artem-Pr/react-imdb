@@ -5,7 +5,7 @@ import {Col, Container, Row} from 'reactstrap';
 import {Link} from "react-router-dom";
 
 function Header(props) {
-    const searchURL = props.searchText ? `/find/${props.searchText}/1` : "";
+    const searchURL = props.searchText ? `${props.baseUrl}find/${props.searchText}/1` : "";
     return (
         <header className={s.header}>
             <Container>

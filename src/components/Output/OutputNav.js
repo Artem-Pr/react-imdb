@@ -14,6 +14,7 @@ let OutputNav = (props) => {
                 </div>
                 <PaginationBlock currentPage={props.currentPage}
                                  totalPages={props.totalPages}
+                                 baseUrl={props.baseUrl}
                                  movieName={props.movieName}/>
             </Col>
         </Row>

@@ -40,6 +40,7 @@ class OutputContainer extends React.Component {
                     currentPage={this.props.currentPage}
                     pageSize={this.props.pageSize}
                     postersUrl={this.props.postersUrl}
+                    baseUrl={this.props.baseUrl}
                     movieName={this.props.searchText}/>
         );
     }
@@ -55,7 +56,8 @@ let mapStateToProps = (state) => {
         postersUrl: state.outputPage.postersUrl,
         smallPosterBaseUrl: state.outputPage.smallPosterBaseUrl,
         lang: state.searchHeader.lang,
-        searchText: state.searchHeader.searchText
+        searchText: state.searchHeader.searchText,
+        baseUrl: state.searchHeader.baseUrl
     }
 };
 

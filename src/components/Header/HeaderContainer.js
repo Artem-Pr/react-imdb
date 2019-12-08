@@ -12,6 +12,7 @@ class HeaderContainer extends React.Component {
     render() {
         return (
             <Header onSearchChanged={this.onSearchChanged}
+                    baseUrl={this.props.baseUrl}
                     searchText={this.props.searchText}/>
         );
     }
@@ -20,7 +21,8 @@ class HeaderContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         searchText: state.searchHeader.searchText,
-        lang: state.searchHeader.lang
+        lang: state.searchHeader.lang,
+        baseUrl: state.searchHeader.baseUrl
     }
 };
 
