@@ -1,5 +1,7 @@
 import React from 'react';
 import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
+import {Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 let PaginationBlock = (props) => {
 
@@ -16,14 +18,14 @@ let PaginationBlock = (props) => {
     let getFirstPageArrow = (currentPage) => {
         if (currentPage > 1) {
             return <PaginationItem>
-                <PaginationLink first onClick={(e) => props.onPageChanged(e, 1)}/>
+                <PaginationLink first tag={Link} to={`/find/${props.movieName}/1`} />
             </PaginationItem>
         }
     };
     let getLastPageArrow = (currentPage, lastPage) => {
         if (currentPage + 1 < lastPage) {
             return <PaginationItem>
-                <PaginationLink last onClick={(e) => props.onPageChanged(e, lastPage)}/>
+                <PaginationLink last tag={Link} to={`/find/${props.movieName}/${lastPage}`} />
             </PaginationItem>
         }
     };
@@ -32,12 +34,18 @@ let PaginationBlock = (props) => {
         {getFirstPageArrow(props.currentPage)}
         {getPagesArray(props.currentPage, props.totalPages)
             .map(p => <PaginationItem key={p} active={p === props.currentPage}>
-            <PaginationLink onClick={(e) => props.onPageChanged(e, p)}>
+            <PaginationLink tag={Link} to={`/find/${props.movieName}/${p}`}>
                 {p}
             </PaginationLink>
         </PaginationItem>)}
         {getLastPageArrow(props.currentPage, props.totalPages)}
     </Pagination>
+};
+
+PaginationBlock.propTypes = {
+    currentPage: PropTypes.number,
+    totalPages: PropTypes.number,
+    movieName: PropTypes.string
 };
 
 export default PaginationBlock;

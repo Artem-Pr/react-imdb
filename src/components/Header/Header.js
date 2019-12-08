@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import s from './Header.module.css'
-import {Button, Col, Container, Row} from 'reactstrap';
+import {Col, Container, Row} from 'reactstrap';
+import {Link} from "react-router-dom";
 
 function Header(props) {
+    const searchURL = props.searchText ? `/find/${props.searchText}/1` : "";
     return (
         <header className={s.header}>
             <Container>
@@ -18,7 +20,7 @@ function Header(props) {
                                placeholder="Enter movie name..."/>
                     </Col>
                     <Col xs="3" md="2" className="d-flex align-items-center">
-                        <Button className="w-100" color="primary" onClick={() => props.onSearchClick()}>Search</Button>
+                        <Link className="w-100 btn btn-primary" to={searchURL}>Search</Link>
                     </Col>
                 </Row>
             </Container>

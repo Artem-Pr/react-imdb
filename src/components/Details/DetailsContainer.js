@@ -20,7 +20,9 @@ class DetailsContainer extends React.Component {
     render() {
         return (
             <Details {...this.props.movieDetails}
-                     posterUrl={this.props.posterUrl}/>
+                     posterUrl={this.props.posterUrl}
+                     currentPage={this.props.currentPage}
+                     searchText={this.props.searchText}/>
         );
     }
 }
@@ -31,6 +33,8 @@ let mapStateToProps = (state) => {
         posterUrl: state.detailsPage.posterUrl,
         posterBaseUrl: state.detailsPage.posterBaseUrl,
         lang: state.searchHeader.lang,
+        currentPage: state.outputPage.currentPage,
+        searchText: state.searchHeader.searchText
     }
 };
 

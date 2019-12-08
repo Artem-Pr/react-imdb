@@ -54,19 +54,19 @@ export const setTotalPages = (totalPages) => ({type: SET_TOTAL_PAGES, totalPages
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setPostersUrl = (urlsArray) => ({type: SET_POSTERS_URL, urlsArray});
 
-export const getMovieList = (lang, searchText, page) => {
+export const getMovieList = (lang, searchText, page, smallPosterBaseUrl) => {
     return (dispatch) => {
         moviesAPI.getMovies(lang, searchText, page)
             .then(response => {
-                dispatch(setMovies(response.data.results));
                 dispatch(setTotalMoviesCount(response.data.total_results));
                 dispatch(setTotalPages(response.data.total_pages));
-                dispatch(setCurrentPage(response.data.page));
+                dispatch(getPostersUrl(response.data.results, smallPosterBaseUrl));
+                dispatch(setMovies(response.data.results));
             });
     }
 };
 
-export const getPostersUrl = (moviesArray, smallPosterBaseUrl) => {
+const getPostersUrl = (moviesArray, smallPosterBaseUrl) => {
     let postersUrlArray = moviesArray.map(item => {
         if (item.poster_path) return smallPosterBaseUrl + item.poster_path;
         return null;

@@ -4,6 +4,7 @@ import OutputContainer from "./components/Output/OutputContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import DetailsContainer from "./components/Details/DetailsContainer";
 import {Route} from "react-router-dom";
+import TittlePageContainer from "./components/TittlePage/TittlePageContainer";
 
 function App() {
     return (
@@ -11,10 +12,10 @@ function App() {
             <HeaderContainer/>
             <div>
                 <Route exact path="/"
-                       render={() => <OutputContainer/>}/>
+                       render={() => <TittlePageContainer/>}/>
                 <Route path="/details/:movieId"
                        render={() => <DetailsContainer/>}/>
-                <Route path="/find/:name/:page"
+                <Route exact path="/find/:name/:page"
                        render={() => <OutputContainer/>}/>
             </div>
         </div>

@@ -8,6 +8,7 @@ const instance = axios.create({
 
 export const moviesAPI = {
     getMovies(lang, movieName, page) {
+        console.log('Request - movies');
         return instance.get('/search/movie', {
             params: {
                 api_key: tmdbAPI,
@@ -20,6 +21,7 @@ export const moviesAPI = {
     },
 
     getDetails(lang, movieId) {
+        console.log('Request - details');
         return instance.get(`/movie/${movieId}`, {
             params: {
                 api_key: tmdbAPI,

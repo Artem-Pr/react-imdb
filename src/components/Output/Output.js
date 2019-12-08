@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Output.module.css';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Col, Container, Row} from 'reactstrap';
 import cx from "classnames";
 import placeHolder from './../../img/Placeholder(92x138).png';
@@ -9,7 +9,7 @@ import VoteAverage from "../Common/VoteAverage/VoteAverage";
 
 let Output = (props) => {
     return (
-        <section className={style.output}>
+        <section className="mt-5">
             {props.movies === null
                 ? <div>searching results</div>
                 : <div>
@@ -18,14 +18,13 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
-                                         movieName={props.movieName}
-                                         onPageChanged={props.onPageChanged}/>
+                                         movieName={props.movieName}/>
                             : ""}
                         {props.movies.length
                             ? props.movies.map((item, i) =>
                                 <Row key={item.id} className="justify-content-center">
                                     <Col md="10">
-                                        <NavLink
+                                        <Link
                                             className={cx(style.moviesItem, "d-flex mb-2 align-items-center border border-primary rounded")}
                                             to={`/details/${item.id}`}>
                                         <span
@@ -41,7 +40,7 @@ let Output = (props) => {
                                             <div className={cx(style.voteAverage, "ml-3 mr-3 text-center")}>
                                                 <VoteAverage vote_average={item.vote_average}/>
                                             </div>
-                                        </NavLink>
+                                        </Link>
                                     </Col>
                                 </Row>)
                             : <span>Sorry, nothing was found</span>
@@ -50,8 +49,7 @@ let Output = (props) => {
                             ? <OutputNav currentPage={props.currentPage}
                                          totalPages={props.totalPages}
                                          totalMoviesCount={props.totalMoviesCount}
-                                         movieName={props.movieName}
-                                         onPageChanged={props.onPageChanged}/>
+                                         movieName={props.movieName}/>
                             : ""}
                     </Container>
                 </div>
