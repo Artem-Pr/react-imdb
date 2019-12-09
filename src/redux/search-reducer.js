@@ -1,7 +1,7 @@
 const UPDATE_SEARCH_TEXT = 'UPDATE_SEARCH_TEXT';
 
 let initialState = {
-    searchText: 'batman',
+    searchText: '',
     lang: 'en-US',
     media_type: [],
     baseUrl: '/react-imdb/'

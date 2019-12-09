@@ -66,6 +66,19 @@ export const getMovieList = (lang, searchText, page, smallPosterBaseUrl) => {
     }
 };
 
+export const discoverMovieList = (lang, smallPosterBaseUrl) => {
+    return (dispatch) => {
+        moviesAPI.discoverMovies(lang)
+            .then(response => {
+                console.log(response);
+                dispatch(setTotalMoviesCount(response.data.total_results));
+                dispatch(setTotalPages(response.data.total_pages));
+                dispatch(getPostersUrl(response.data.results, smallPosterBaseUrl));
+                dispatch(setMovies(response.data.results));
+            });
+    }
+};
+
 const getPostersUrl = (moviesArray, smallPosterBaseUrl) => {
     let postersUrlArray = moviesArray.map(item => {
         if (item.poster_path) return smallPosterBaseUrl + item.poster_path;

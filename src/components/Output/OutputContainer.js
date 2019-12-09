@@ -29,15 +29,16 @@ class OutputContainer extends React.Component {
     };
 
     render() {
-        return (
-            <Output movies={this.props.movies}
-                    totalMoviesCount={this.props.totalMoviesCount}
-                    totalPages={this.props.totalPages}
-                    currentPage={this.props.currentPage}
-                    pageSize={this.props.pageSize}
-                    postersUrl={this.props.postersUrl}
-                    baseUrl={this.props.baseUrl}
-                    movieName={this.props.searchText}/>
+        return (this.props.movies
+                ? <Output movies={this.props.movies}
+                          totalMoviesCount={this.props.totalMoviesCount}
+                          totalPages={this.props.totalPages}
+                          currentPage={this.props.currentPage}
+                          pageSize={this.props.pageSize}
+                          postersUrl={this.props.postersUrl}
+                          baseUrl={this.props.baseUrl}
+                          movieName={this.props.searchText}/>
+                : ''
         );
     }
 }

@@ -28,5 +28,23 @@ export const moviesAPI = {
                 language: lang
             }
         })
+    },
+
+    discoverMovies(lang) {
+        console.log('Request - discover');
+        return instance.get(`/discover/movie`, {
+            params: {
+                api_key: tmdbAPI,
+                language: lang,
+                // sort_by: "popularity.desc",
+                // sort_by: "vote_average.desc",
+                "primary_release_date.gte": "2019-12-01",
+                "primary_release_date.lte": "2019-12-31",
+                // certification: "R",
+                include_adult: false,
+                include_video: false,
+                page: 1
+            }
+        })
     }
 };

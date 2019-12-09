@@ -10,14 +10,16 @@ function Header(props) {
         baseUrl,
         onSearchChanged,
     } = props;
-    const searchURL = searchText ? `${baseUrl}find/${searchText}/1` : "";
+    const searchURL = searchText ? `${baseUrl}find/${searchText}/1` : `${baseUrl}`;
 
     return (
         <header className={s.header}>
             <Container>
                 <Row>
                     <Col xs="3" md="2" className="d-flex align-items-center">
-                        <img src={logo} className={s.logo} alt="logo"/>
+                        <Link to={baseUrl}>
+                            <img src={logo} className={s.logo} alt="logo"/>
+                        </Link>
                     </Col>
                     <Col xs="6" md="8" className="d-flex align-items-center">
                         <input type="text" className="form-control"

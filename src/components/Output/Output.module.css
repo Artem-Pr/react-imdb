@@ -18,6 +18,7 @@
 }
 .moviesItem:hover {
     background-color: #c6d9ff;
+    border-color: #007bff !important;
 }
 .moviesItemTitle {
     max-width: 350px;

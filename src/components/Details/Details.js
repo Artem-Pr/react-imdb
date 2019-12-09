@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import {Button, Col, Container, Row} from "reactstrap";
 import placeHolder from "../../img/Placeholder(300x450).png";
 import VoteAverage from "../Common/VoteAverage/VoteAverage";
