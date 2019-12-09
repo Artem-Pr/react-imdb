@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Col, Container, Row} from "reactstrap";
+import {Button, Col, Container, Row} from "reactstrap";
 import placeHolder from "../../img/Placeholder(300x450).png";
 import VoteAverage from "../Common/VoteAverage/VoteAverage";
 
@@ -17,9 +17,9 @@ let Details = (props) => {
             <Container className="mt-4">
                 <Row>
                     <Col xs="5" md="3">
-                        <Link className="mb-4 btn btn-outline-primary" to={`${props.baseUrl}find/${props.searchText}/${props.currentPage}`}>
-                            Go back
-                        </Link>
+                        <Button outline className="mb-4" color="primary" onClick={() => {props.onClickBack()}}>
+                            Go Back
+                        </Button>
                         <img className="w-100"
                              src={props.posterUrl || placeHolder}
                              alt={props.title + '_img'}/>

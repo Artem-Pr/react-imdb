@@ -5,7 +5,7 @@ import OutputContainer from "./components/Output/OutputContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import DetailsContainer from "./components/Details/DetailsContainer";
 import {Route} from "react-router-dom";
-import TittlePageContainer from "./components/TittlePage/TittlePageContainer";
+import TitlePageContainer from "./components/TittlePage/TitlePageContainer";
 
 function App({baseUrl}) {
     return (
@@ -13,7 +13,7 @@ function App({baseUrl}) {
             <HeaderContainer/>
             <div>
                 <Route exact path={baseUrl}
-                       render={() => <TittlePageContainer/>}/>
+                       render={() => <TitlePageContainer/>}/>
                 <Route path={`${baseUrl}details/:movieId`}
                        render={() => <DetailsContainer/>}/>
                 <Route exact path={`${baseUrl}find/:name/:page`}

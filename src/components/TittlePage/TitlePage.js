@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Container, Row} from 'reactstrap';
 
-let TittlePage = (props) => {
+let TitlePage = (props) => {
     return (
         <section className="mt-5">
             <Container>
@@ -11,4 +11,4 @@ let TittlePage = (props) => {
     );
 };
 
-export default TittlePage;
+export default TitlePage;
