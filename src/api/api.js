@@ -30,7 +30,7 @@ export const moviesAPI = {
         })
     },
 
-    discoverMovies(lang) {
+    discoverMovies(lang, page) {
         console.log('Request - discover');
         return instance.get(`/discover/movie`, {
             params: {
@@ -43,7 +43,7 @@ export const moviesAPI = {
                 // certification: "R",
                 include_adult: false,
                 include_video: false,
-                page: 1
+                page: page
             }
         })
     }

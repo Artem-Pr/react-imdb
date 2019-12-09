@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
 import TitlePage from "./TitlePage";
-import {discoverMovieList, getMovieList} from "../../redux/output-reducer";
+import {discoverMovieList, getMovieList, setCurrentPage} from "../../redux/output-reducer";
 
 
 class TitlePageContainer extends React.Component {
 
     componentDidMount() {
-        this.props.discoverMovieList(this.props.lang, this.props.smallPosterBaseUrl);
+        let currentPage = 1;
+        this.props.discoverMovieList(this.props.lang, currentPage, this.props.smallPosterBaseUrl);
+        this.props.setCurrentPage(currentPage);
     }
 
     render() {
@@ -34,4 +36,4 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getMovieList, discoverMovieList})(TitlePageContainer);
+export default connect(mapStateToProps, {getMovieList, discoverMovieList, setCurrentPage})(TitlePageContainer);
