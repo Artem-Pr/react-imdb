@@ -4,6 +4,12 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
 let PaginationBlock = (props) => {
+    const {
+        baseUrl,
+        movieName,
+        currentPage,
+        totalPages
+    } = props;
 
     let getPagesArray = (curPage, lastPage) => {
         let pagesArray = [];
@@ -18,27 +24,27 @@ let PaginationBlock = (props) => {
     let getFirstPageArrow = (currentPage) => {
         if (currentPage > 1) {
             return <PaginationItem>
-                <PaginationLink first tag={Link} to={`${props.baseUrl}find/${props.movieName}/1`} />
+                <PaginationLink first tag={Link} to={`${baseUrl}find/${movieName}/1`} />
             </PaginationItem>
         }
     };
     let getLastPageArrow = (currentPage, lastPage) => {
         if (currentPage + 1 < lastPage) {
             return <PaginationItem>
-                <PaginationLink last tag={Link} to={`${props.baseUrl}find/${props.movieName}/${lastPage}`} />
+                <PaginationLink last tag={Link} to={`${baseUrl}find/${movieName}/${lastPage}`} />
             </PaginationItem>
         }
     };
 
     return <Pagination>
-        {getFirstPageArrow(props.currentPage)}
-        {getPagesArray(props.currentPage, props.totalPages)
-            .map(p => <PaginationItem key={p} active={p === props.currentPage}>
-            <PaginationLink tag={Link} to={`${props.baseUrl}find/${props.movieName}/${p}`}>
+        {getFirstPageArrow(currentPage)}
+        {getPagesArray(currentPage, totalPages)
+            .map(p => <PaginationItem key={p} active={p === currentPage}>
+            <PaginationLink tag={Link} to={`${baseUrl}find/${movieName}/${p}`}>
                 {p}
             </PaginationLink>
         </PaginationItem>)}
-        {getLastPageArrow(props.currentPage, props.totalPages)}
+        {getLastPageArrow(currentPage, totalPages)}
     </Pagination>
 };
 

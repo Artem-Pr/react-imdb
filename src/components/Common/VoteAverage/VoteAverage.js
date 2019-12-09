@@ -3,6 +3,9 @@ import style from './VoteAverage.module.css';
 import cx from "classnames";
 
 let VoteAverage = (props) => {
+    const {
+        vote_average
+    } = props;
 
     let getVoteAverageColor = (voteAverage) => {
         if (voteAverage > 7) return style.voteAverageGreen;
@@ -11,8 +14,8 @@ let VoteAverage = (props) => {
     };
 
     return (
-        <span className={cx(getVoteAverageColor(props.vote_average), "font-weight-bold")}>
-            {props.vote_average}
+        <span className={cx(getVoteAverageColor(vote_average), "font-weight-bold")}>
+            {vote_average}
         </span>
     );
 };

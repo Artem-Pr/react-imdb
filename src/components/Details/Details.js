@@ -12,56 +12,70 @@ let getFormatGenres = (genresArray) => {
 };
 
 let Details = (props) => {
+    const {
+        posterUrl,
+        title,
+        genres,
+        vote_average,
+        vote_count,
+        release_date,
+        runtime,
+        budget,
+        overview,
+        homepage,
+        onClickBack,
+    } = props;
+
     return (
         <section>
             <Container className="mt-4">
                 <Row>
                     <Col xs="5" md="3">
-                        <Button outline className="mb-4" color="primary" onClick={() => {props.onClickBack()}}>
+                        <Button outline className="mb-4" color="primary" onClick={() => {onClickBack()}}>
                             Go Back
                         </Button>
                         <img className="w-100"
-                             src={props.posterUrl || placeHolder}
-                             alt={props.title + '_img'}/>
+                             src={posterUrl || placeHolder}
+                             alt={title + '_img'}/>
                     </Col>
                     <Col xs="7" md="9">
-                        <h2 className="mb-3">{props.title}</h2>
+                        <h2 className="mb-3">{title}</h2>
                         <div>
                             <span className="mr-2">Genres:</span>
-                            {props.genres ? getFormatGenres(props.genres).map((item, i) =>
+                            {genres ? getFormatGenres(genres).map((item, i) =>
                                 <span className="text-muted text-lowercase" key={i}>{item}</span>) : "-"}
                         </div>
                         <div>
                             <span>Vote average:</span>
                             <span className="ml-2">
-                                <VoteAverage vote_average={props.vote_average}/>
+                                <VoteAverage vote_average={vote_average}/>
                             </span>
                         </div>
                         <div>
                             <span>Vote count:</span>
-                            <span className="ml-2 text-muted">{props.vote_count}</span>
+                            <span className="ml-2 text-muted">{vote_count}</span>
                         </div>
                         <div>
                             <span>Release date:</span>
-                            <span className="ml-2 text-muted">{props.release_date}</span>
+                            <span className="ml-2 text-muted">{release_date}</span>
                         </div>
                         <div>
                             <span>Runtime:</span>
-                            <span className="ml-2 text-muted">{props.runtime} min</span>
+                            <span className="ml-2 text-muted">{runtime} min</span>
                         </div>
                         <div>
                             <span>Budget:</span>
-                            <span className="ml-2 text-muted">{props.budget} &#36;</span>
+                            <span className="ml-2 text-muted">{budget} &#36;</span>
                         </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col className="mt-4">
                         <h4>Overview</h4>
-                        <p>{props.overview}</p>
+                        <p>{overview}</p>
                         <div>
                             <span className="mr-2">Homepage:</span>
-                            <a href={props.homepage || undefined}>{props.homepage || "-"}</a>
+                            <a href={homepage || undefined}>{homepage || "-"}</a>
                         </div>
                     </Col>
                 </Row>

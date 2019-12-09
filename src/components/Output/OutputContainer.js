@@ -9,26 +9,22 @@ import {updateSearchText} from "../../redux/search-reducer";
 class OutputContainer extends React.Component {
 
     componentDidMount() {
-        if (this.props.match.params.name) this.props.updateSearchText(this.props.match.params.name);
-        this.props.getMovieList(
-            this.props.lang,
-            this.props.match.params.name,
-            this.props.match.params.page,
-            this.props.smallPosterBaseUrl
-        );
+        let page = +this.props.match.params.page;
+        let name = this.props.match.params.name;
+
+        if (name) this.props.updateSearchText(name);
+        this.props.getMovieList(this.props.lang, name, page, this.props.smallPosterBaseUrl);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (+this.props.match.params.page !== +prevProps.currentPage) {
-            this.props.setCurrentPage(+this.props.match.params.page);
+        let page = +this.props.match.params.page;
+        let name = this.props.match.params.name;
+
+        if (page !== +prevProps.currentPage) {
+            this.props.setCurrentPage(page);
         }
         if (+this.props.currentPage !== +prevProps.currentPage) {
-            this.props.getMovieList(
-                this.props.lang,
-                this.props.match.params.name,
-                this.props.match.params.page,
-                this.props.smallPosterBaseUrl
-            );
+            this.props.getMovieList(this.props.lang, name, page, this.props.smallPosterBaseUrl);
         }
     };
 
