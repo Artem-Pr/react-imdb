@@ -70,7 +70,6 @@ export const discoverMovieList = (lang, page, smallPosterBaseUrl) => {
     return (dispatch) => {
         moviesAPI.discoverMovies(lang, page)
             .then(response => {
-                console.log(response);
                 dispatch(setTotalMoviesCount(response.data.total_results));
                 dispatch(setTotalPages(response.data.total_pages));
                 dispatch(getPostersUrl(response.data.results, smallPosterBaseUrl));

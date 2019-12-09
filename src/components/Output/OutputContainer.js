@@ -13,7 +13,9 @@ class OutputContainer extends React.Component {
         let name = this.props.match.params.name;
 
         if (name) this.props.updateSearchText(name);
-        this.props.getMovieList(this.props.lang, name, page, this.props.smallPosterBaseUrl);
+        if (+this.props.currentPage === page)
+            this.props.getMovieList(this.props.lang, name, page, this.props.smallPosterBaseUrl);
+        else this.props.setCurrentPage(page);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -23,7 +25,7 @@ class OutputContainer extends React.Component {
         if (page !== +prevProps.currentPage) {
             this.props.setCurrentPage(page);
         }
-        if (+this.props.currentPage !== +prevProps.currentPage) {
+        if (+this.props.currentPage !== +prevProps.currentPage || name !== prevProps.match.params.name) {
             this.props.getMovieList(this.props.lang, name, page, this.props.smallPosterBaseUrl);
         }
     };
