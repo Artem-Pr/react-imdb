@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-imdb/static/css/main.63dddb3f.chunk.css",
-    "main.js": "/react-imdb/static/js/main.0017a15d.chunk.js",
-    "main.js.map": "/react-imdb/static/js/main.0017a15d.chunk.js.map",
+    "main.js": "/react-imdb/static/js/main.8a80f3af.chunk.js",
+    "main.js.map": "/react-imdb/static/js/main.8a80f3af.chunk.js.map",
     "runtime-main.js": "/react-imdb/static/js/runtime-main.105d6a97.js",
     "runtime-main.js.map": "/react-imdb/static/js/runtime-main.105d6a97.js.map",
     "static/css/2.83ace7dd.chunk.css": "/react-imdb/static/css/2.83ace7dd.chunk.css",
-    "static/js/2.ba290974.chunk.js": "/react-imdb/static/js/2.ba290974.chunk.js",
-    "static/js/2.ba290974.chunk.js.map": "/react-imdb/static/js/2.ba290974.chunk.js.map",
+    "static/js/2.f9c16c2d.chunk.js": "/react-imdb/static/js/2.f9c16c2d.chunk.js",
+    "static/js/2.f9c16c2d.chunk.js.map": "/react-imdb/static/js/2.f9c16c2d.chunk.js.map",
     "index.html": "/react-imdb/index.html",
-    "precache-manifest.08a894e332d3190f39c5da98048cdd7d.js": "/react-imdb/precache-manifest.08a894e332d3190f39c5da98048cdd7d.js",
+    "precache-manifest.a7b10875a93c992043d1f2ad1337e2ae.js": "/react-imdb/precache-manifest.a7b10875a93c992043d1f2ad1337e2ae.js",
     "service-worker.js": "/react-imdb/service-worker.js",
     "static/css/2.83ace7dd.chunk.css.map": "/react-imdb/static/css/2.83ace7dd.chunk.css.map",
     "static/css/main.63dddb3f.chunk.css.map": "/react-imdb/static/css/main.63dddb3f.chunk.css.map",
@@ -19,8 +19,8 @@
   "entrypoints": [
     "static/js/runtime-main.105d6a97.js",
     "static/css/2.83ace7dd.chunk.css",
-    "static/js/2.ba290974.chunk.js",
+    "static/js/2.f9c16c2d.chunk.js",
     "static/css/main.63dddb3f.chunk.css",
-    "static/js/main.0017a15d.chunk.js"
+    "static/js/main.8a80f3af.chunk.js"
   ]
 }
