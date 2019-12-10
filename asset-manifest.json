@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/react-imdb/static/css/main.2d6f32a0.chunk.css",
-    "main.js": "/react-imdb/static/js/main.9821cd68.chunk.js",
-    "main.js.map": "/react-imdb/static/js/main.9821cd68.chunk.js.map",
+    "main.css": "/react-imdb/static/css/main.31ee1410.chunk.css",
+    "main.js": "/react-imdb/static/js/main.3818ccba.chunk.js",
+    "main.js.map": "/react-imdb/static/js/main.3818ccba.chunk.js.map",
     "runtime-main.js": "/react-imdb/static/js/runtime-main.105d6a97.js",
     "runtime-main.js.map": "/react-imdb/static/js/runtime-main.105d6a97.js.map",
     "static/css/2.83ace7dd.chunk.css": "/react-imdb/static/css/2.83ace7dd.chunk.css",
     "static/js/2.52abbe1e.chunk.js": "/react-imdb/static/js/2.52abbe1e.chunk.js",
     "static/js/2.52abbe1e.chunk.js.map": "/react-imdb/static/js/2.52abbe1e.chunk.js.map",
     "index.html": "/react-imdb/index.html",
-    "precache-manifest.872617897332923d7fe050a472a6fd04.js": "/react-imdb/precache-manifest.872617897332923d7fe050a472a6fd04.js",
+    "precache-manifest.19af8fc034e6e1544a393366b0908d6c.js": "/react-imdb/precache-manifest.19af8fc034e6e1544a393366b0908d6c.js",
     "service-worker.js": "/react-imdb/service-worker.js",
     "static/css/2.83ace7dd.chunk.css.map": "/react-imdb/static/css/2.83ace7dd.chunk.css.map",
-    "static/css/main.2d6f32a0.chunk.css.map": "/react-imdb/static/css/main.2d6f32a0.chunk.css.map",
+    "static/css/main.31ee1410.chunk.css.map": "/react-imdb/static/css/main.31ee1410.chunk.css.map",
     "static/media/Placeholder(300x450).png": "/react-imdb/static/media/Placeholder(300x450).c0bd1228.png",
     "static/media/logo.svg": "/react-imdb/static/media/logo.25bf045c.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.105d6a97.js",
     "static/css/2.83ace7dd.chunk.css",
     "static/js/2.52abbe1e.chunk.js",
-    "static/css/main.2d6f32a0.chunk.css",
-    "static/js/main.9821cd68.chunk.js"
+    "static/css/main.31ee1410.chunk.css",
+    "static/js/main.3818ccba.chunk.js"
   ]
 }
