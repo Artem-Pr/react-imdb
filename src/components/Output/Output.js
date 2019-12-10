@@ -34,7 +34,7 @@ let Output = (props) => {
                         <Row key={item.id} className="justify-content-center">
                             <Col md="10">
                                 <Link
-                                    className={cx(style.moviesItem, "d-flex mb-2 align-items-center border border-secondary rounded")}
+                                    className={cx(style.moviesItem, "d-flex mb-2 align-items-center btn btn-light")}
                                     to={`${baseUrl}details/${item.id}`}>
                                         <span
                                             className={cx(style.number, "ml-3 mb-0")}>{pageSize * (currentPage - 1) + i + 1}</span>
@@ -42,7 +42,7 @@ let Output = (props) => {
                                          src={postersUrl[i] || placeHolder}
                                          alt={item.title + '_img'}/>
                                     <div
-                                        className={cx(style.moviesItemTitle, "d-flex flex-column ml-3 mr-auto")}>
+                                        className={cx(style.moviesItemTitle, "d-flex ml-3 mr-auto flex-column text-left")}>
                                         <h4 className="mb-0">{item.name || item.title}</h4>
                                         <span>{item.release_date || item.first_air_date}</span>
                                     </div>

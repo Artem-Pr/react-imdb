@@ -14,20 +14,20 @@ function Header(props) {
 
     return (
         <header className={s.header}>
-            <Container>
-                <Row>
-                    <Col xs="3" md="2" className="d-flex align-items-center">
+            <Container className="h-100">
+                <Row className="h-100 align-items-center">
+                    <Col xs="3" md="2">
                         <Link to={baseUrl}>
                             <img src={logo} className={s.logo} alt="logo"/>
                         </Link>
                     </Col>
-                    <Col xs="6" md="8" className="d-flex align-items-center">
+                    <Col xs="6" md="8">
                         <input type="text" className="form-control"
                                value={searchText}
                                onChange={(e) => onSearchChanged(e)}
                                placeholder="Enter movie name..."/>
                     </Col>
-                    <Col xs="3" md="2" className="d-flex align-items-center">
+                    <Col xs="3" md="2">
                         <Link className="w-100 btn btn-primary" to={searchURL}>Search</Link>
                     </Col>
                 </Row>

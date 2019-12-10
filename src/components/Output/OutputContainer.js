@@ -22,6 +22,8 @@ class OutputContainer extends React.Component {
         let page = +this.props.match.params.page;
         let name = this.props.match.params.name;
 
+        window.scrollTo({top: 0});
+
         if (page !== +prevProps.currentPage) {
             this.props.setCurrentPage(page);
         }

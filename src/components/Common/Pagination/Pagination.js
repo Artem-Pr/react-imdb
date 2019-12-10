@@ -21,15 +21,15 @@ let PaginationBlock = (props) => {
         return pagesArray;
     };
 
-    let getFirstPageArrow = (currentPage) => {
-        if (currentPage > 1) {
+    let getFirstPageArrow = (currentPage, lastPage) => {
+        if (currentPage > 2 && lastPage > 3) {
             return <PaginationItem>
                 <PaginationLink first tag={Link} to={`${baseUrl}find/${movieName}/1`} />
             </PaginationItem>
         }
     };
     let getLastPageArrow = (currentPage, lastPage) => {
-        if (currentPage + 1 < lastPage) {
+        if (currentPage + 1 < lastPage && lastPage > 3) {
             return <PaginationItem>
                 <PaginationLink last tag={Link} to={`${baseUrl}find/${movieName}/${lastPage}`} />
             </PaginationItem>
@@ -37,7 +37,7 @@ let PaginationBlock = (props) => {
     };
 
     return <Pagination>
-        {getFirstPageArrow(currentPage)}
+        {getFirstPageArrow(currentPage, totalPages)}
         {getPagesArray(currentPage, totalPages)
             .map(p => <PaginationItem key={p} active={p === currentPage}>
             <PaginationLink tag={Link} to={`${baseUrl}find/${movieName}/${p}`}>
