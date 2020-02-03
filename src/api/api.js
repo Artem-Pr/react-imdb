@@ -35,8 +35,9 @@ export const moviesAPI = {
         let today = new Date();
         let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1, 0);
         let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-        lastDayOfMonth = lastDayOfMonth.getFullYear() + '-' + lastDayOfMonth.getMonth()+1 + '-' + lastDayOfMonth.getDate();
-        firstDayOfMonth = firstDayOfMonth.getFullYear() + '-' + firstDayOfMonth.getMonth()+1 + '-01';
+        let currentMonth = String(lastDayOfMonth.getMonth()+1).padStart(2, "0");
+        lastDayOfMonth = lastDayOfMonth.getFullYear() + '-' + currentMonth + '-' + lastDayOfMonth.getDate();
+        firstDayOfMonth = firstDayOfMonth.getFullYear() + '-' + currentMonth + '-01';
         // console.log('firstDayOfMonth - ' + firstDayOfMonth);
         // console.log('lastDayOfMonth - ' + lastDayOfMonth);
         return instance.get(`/discover/movie`, {
